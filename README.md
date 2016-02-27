@@ -1,2 +1,2 @@
-# FolderMirror
-First publish
+# Folder Mirror
+Folder mirror project on C# WinForm
