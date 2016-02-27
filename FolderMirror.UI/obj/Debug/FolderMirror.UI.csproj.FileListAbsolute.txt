@@ -1,0 +1,8 @@
+c:\users\hadron\documents\visual studio 2015\Projects\FolderMirror\FolderMirror.UI\bin\Debug\FolderMirror.UI.exe.config
+c:\users\hadron\documents\visual studio 2015\Projects\FolderMirror\FolderMirror.UI\obj\Debug\FolderMirror.UI.Properties.Resources.resources
+c:\users\hadron\documents\visual studio 2015\Projects\FolderMirror\FolderMirror.UI\obj\Debug\FolderMirror.UI.csproj.GenerateResource.Cache
+c:\users\hadron\documents\visual studio 2015\Projects\FolderMirror\FolderMirror.UI\bin\Debug\FolderMirror.UI.exe
+c:\users\hadron\documents\visual studio 2015\Projects\FolderMirror\FolderMirror.UI\bin\Debug\FolderMirror.UI.pdb
+c:\users\hadron\documents\visual studio 2015\Projects\FolderMirror\FolderMirror.UI\obj\Debug\FolderMirror.UI.exe
+c:\users\hadron\documents\visual studio 2015\Projects\FolderMirror\FolderMirror.UI\obj\Debug\FolderMirror.UI.pdb
+c:\users\hadron\documents\visual studio 2015\Projects\FolderMirror\FolderMirror.UI\obj\Debug\FolderMirror.UI.Forms.MainForm.resources
