@@ -16,7 +16,6 @@ namespace FolderMirror.UI.Forms
 
         public MainForm()
         {
-            //Github test
             InitializeComponent();
         }
 
