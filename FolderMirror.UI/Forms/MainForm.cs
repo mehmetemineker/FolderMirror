@@ -34,6 +34,8 @@ namespace FolderMirror.UI.Forms
             {
                 mfswL = new MirrorFileSystemWatcher(path.Key);
                 mfswR = new MirrorFileSystemWatcher(path.Value);
+
+                listBox1.Items.Add(path);
             }
 
             mfswL.Trigger += MfswL_EventHandler;
@@ -46,13 +48,19 @@ namespace FolderMirror.UI.Forms
 
             if (e.OldChangedFullPath != null)
             {
-                listBox1.Items.Add(e.Event + " - " + e.ChangedFullPath + " - " + e.OldChangedFullPath + " - " + DateTime.Now);
+                listBox2.Items.Add(e.Event + " - " + e.ChangedFullPath + " - " + e.OldChangedFullPath + " - " + DateTime.Now);
             }
             else
             {
-                listBox1.Items.Add(e.Event + " - " + e.ChangedFullPath + " - " + DateTime.Now);
+                listBox2.Items.Add(e.Event + " - " + e.ChangedFullPath + " - " + DateTime.Now);
             }
             Control.CheckForIllegalCrossThreadCalls = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            KeyValuePair<string, string> item = (KeyValuePair<string, string>)listBox1.SelectedItem;
+            
         }
     }
 }
