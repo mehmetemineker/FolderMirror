@@ -1,0 +1,4 @@
+C:\Users\Hadron\Documents\GitHub\FolderMirror\FolderMirror.Core\bin\Debug\FolderMirror.Core.dll
+C:\Users\Hadron\Documents\GitHub\FolderMirror\FolderMirror.Core\bin\Debug\FolderMirror.Core.pdb
+C:\Users\Hadron\Documents\GitHub\FolderMirror\FolderMirror.Core\obj\Debug\FolderMirror.Core.dll
+C:\Users\Hadron\Documents\GitHub\FolderMirror\FolderMirror.Core\obj\Debug\FolderMirror.Core.pdb
