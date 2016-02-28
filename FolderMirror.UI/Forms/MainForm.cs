@@ -1,7 +1,9 @@
-﻿using System;
+﻿using FolderMirror.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -11,9 +13,13 @@ using System.Windows.Forms;
 
 namespace FolderMirror.UI.Forms
 {
+    //Deleted olduğunda klasör yada dosya silinecek
+    //Changed yada Created olduğunda kopyalama yapılacak
+    //Renamed olduğunda isim değişecek
     public partial class MainForm : Form
     {
-
+        MirrorFileSystemWatcher mfswL;
+        MirrorFileSystemWatcher mfswR;
         public MainForm()
         {
             InitializeComponent();
@@ -21,30 +27,32 @@ namespace FolderMirror.UI.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            FileSystemWatcher fileSystemWatcher1 = new FileSystemWatcher();
-            fileSystemWatcher1.Path = @"D:\Test1";
-            fileSystemWatcher1.IncludeSubdirectories = true;
-            fileSystemWatcher1.EnableRaisingEvents = true;
-            fileSystemWatcher1.Changed += fileSystemWatcher1_Changed;
-            fileSystemWatcher1.Created += fileSystemWatcher1_Created;
+            Dictionary<string, string> listPaths = new Dictionary<string, string>();
+            listPaths.Add("D:\\Test1", "D:\\Test2");
 
-            FileSystemWatcher fileSystemWatcher2 = new FileSystemWatcher();
-            fileSystemWatcher2.Path = @"D:\Test2";
-            fileSystemWatcher2.IncludeSubdirectories = true;
-            fileSystemWatcher2.EnableRaisingEvents = true;
-            //fileSystemWatcher2.Changed += fileSystemWatcher1_Changed;
+            foreach (KeyValuePair<string, string> path in listPaths)
+            {
+                mfswL = new MirrorFileSystemWatcher(path.Key);
+                mfswR = new MirrorFileSystemWatcher(path.Value);
+            }
+
+            mfswL.Trigger += MfswL_EventHandler;
+            mfswR.Trigger += MfswL_EventHandler;
         }
 
-        private void fileSystemWatcher1_Created(object sender, FileSystemEventArgs e)
+        private void MfswL_EventHandler(object sender, EventOutput e)
         {
-            File.Copy(e.FullPath, @"D:\Test2\" + e.Name);
+            Control.CheckForIllegalCrossThreadCalls = false;
+
+            if (e.OldChangedFullPath != null)
+            {
+                listBox1.Items.Add(e.Event + " - " + e.ChangedFullPath + " - " + e.OldChangedFullPath + " - " + DateTime.Now);
+            }
+            else
+            {
+                listBox1.Items.Add(e.Event + " - " + e.ChangedFullPath + " - " + DateTime.Now);
+            }
+            Control.CheckForIllegalCrossThreadCalls = true;
         }
-
-        private void fileSystemWatcher1_Changed(object sender, FileSystemEventArgs e)
-        {
-            File.Copy(e.FullPath, @"D:\Test2\" + e.Name, true);
-        }
-
-
     }
 }
